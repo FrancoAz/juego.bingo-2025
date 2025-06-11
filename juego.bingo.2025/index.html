@@ -1,0 +1,74 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bingo Solidario 80</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="importmap">
+    {
+        "imports": {
+            "tone": "https://cdn.skypack.dev/tone"
+        }
+    }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="bingo-title custom-solidario-title">
+                BINGO SOLIDARIO A FRANCO ALVAREZ
+            </h1>
+        </header>
+
+        <section id="panel-de-control">
+            <h2 id="panel-title" class="panel-blue-title">PANEL DE CONTROL</h2>
+            <div id="control-buttons">
+                <button id="btn-start">🎲 Iniciar juego</button>
+                <button id="btn-reset">🔄 Reiniciar juego</button>
+                <button id="btn-voice">🔊 Silenciar Voz</button>
+                <button id="btn-auto">▶️ Auto</button>
+                <button id="btn-bingo">¡BINGO!</button>
+                <button id="btn-linea">¡Línea!</button>
+            </div>
+            <div class="control-extras">
+                <span id="bolas-restantes"><b>Bolas restantes:</b> 80</span>
+                <span id="cartilla-label" class="cartilla-label-blue">
+                    <b>Cartilla:</b> <span id="cartilla-seleccionada">Ninguna</span>
+                </span>
+                <button id="btn-seleccionar-cartilla">Elegir cartilla</button>
+                <label><input type="checkbox" id="chk-marcado-auto"> Marcado automático</label>
+            </div>
+        </section>
+
+        <div class="main-flex">
+            <aside class="left-display">
+                <div class="bola-actual-container">
+                    <div id="bola-actual" class="bola-actual">--</div>
+                    <span class="label-bola-actual">Bola actual</span>
+                </div>
+                <section class="ultimas-bolas">
+                    <h3>ÚLTIMAS BOLAS CANTADAS</h3>
+                    <div id="ultimas-bolas-list"></div>
+                </section>
+            </aside>
+            <main class="numbers-panel">
+                <div id="numbers-grid" class="numbers-grid"></div>
+            </main>
+        </div>
+
+        <section id="cartillas-section">
+            <div class="cartilla-selector-layout">
+                <div class="cartilla-flex-container">
+                    <h2 class="cartilla-seleccionada-title">Cartilla seleccionada</h2>
+                    <div id="cartilla-container"></div>
+                </div>
+                <div id="cartilla-selector-panel"></div>
+            </div>
+        </section>
+    </div>
+
+    <div id="modal-overlay" class="modal hidden"></div>
+    <script type="module" src="game.js"></script>
+</body>
+</html>

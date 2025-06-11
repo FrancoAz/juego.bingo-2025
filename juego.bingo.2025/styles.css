@@ -1,0 +1,670 @@
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Montserrat:wght@700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', Arial, sans-serif;
+    background: url('background.png') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 25px auto 15px auto;
+    padding: 20px 20px 40px 20px;
+    background: rgba(255,255,255,0.93);
+    border-radius: 20px;
+    box-shadow: 0 0 30px #6a1b9a99;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.bingo-title {
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 3.4rem;
+    letter-spacing: 6px;
+    text-shadow: 3px 4px 0 #ffffff, 1px 2px #3ec7b0;
+}
+
+.title-green {
+    color: #24ff2b;
+    text-shadow: 2px 1px 0 #13a314, 0 0 12px #65fd90;
+}
+.title-turquoise {
+    color: #27f8e3;
+    margin-left: 15px;
+    text-shadow: 2px 1px 0 #00948d, 0 0 13px #31ffc0;
+}
+
+/* Título morado custom */
+.custom-solidario-title {
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 2.9rem;
+    letter-spacing: 3px;
+    color: #711d94;
+    text-shadow: 1.3px 1.5px 0 #fff, 
+        0 0 17px #e6d7ffb3,
+        0 0 2px #230649c4;
+    margin-bottom: 12px;
+    background: none;
+}
+
+/* Panel de control subtítulo azul */
+.panel-blue-title {
+    color: #1572eb !important;
+    text-shadow: 2px 2px 0 #a8e1ff80, 0 1px #fff;
+    font-family: 'Luckiest Guy', cursive;
+}
+
+/* "Cartilla seleccionada" título azul */
+.cartilla-seleccionada-title {
+    color: #1873f7 !important;
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 1.32em;
+    text-align: center;
+    margin-bottom: 12px;
+    text-shadow: 1px 2px #fff, 0 0 8px #1873f7af;
+}
+
+/* Cartilla label (leyenda lateral: Cartilla: #) azul */
+.cartilla-label-blue {
+    color: #1572eb;
+}
+.cartilla-label-blue > b {
+    color: #1873f7;
+}
+
+#panel-de-control {
+    margin: 15px auto 25px auto;
+    padding: 25px 20px 16px 20px;
+    background: linear-gradient(90deg,#0fd967 40%, #f0ff30 100%);
+    border-radius: 16px;
+    box-shadow: 0 0 12px #49d2b1b3;
+}
+#panel-title {
+    font-family: 'Luckiest Guy', cursive;
+    text-align: center;
+    color: #00ff7f;
+    font-size: 2rem;
+    letter-spacing: 3px;
+    margin-bottom: 12px;
+    text-shadow: 2px 2px 0 #181;
+}
+
+#control-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    justify-content: center;
+    margin-bottom: 11px;
+}
+#control-buttons button {
+    font-size: 1.09em;
+    background: linear-gradient(135deg,#711d94 45%,#ffeb3b 100%);
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    border: none;
+    padding: 11px 22px;
+    border-radius: 23px;
+    cursor: pointer;
+    box-shadow: 0 2px 6px #0002;
+    transition: all 0.18s;
+    outline: none;
+    letter-spacing: 1px;
+    text-shadow: 1px 2px #0005;
+}
+
+#control-buttons button:disabled {
+    background: #bbb;
+    color: #eee;
+    cursor: not-allowed;
+    opacity: 0.8;
+}
+
+/* Control extras row */
+.control-extras {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    font-size: 1.1em;
+    margin-bottom: 2px;
+}
+.control-extras #bolas-restantes b {
+    color: #6a1b9a;
+}
+#cartilla-label b {
+    color: #00d1b2;
+}
+#btn-seleccionar-cartilla {
+    padding: 5px 16px;
+    border-radius: 12px;
+    border: 1.5px solid #6a1b9a;
+    background: #27f8e3;
+    color: #222;
+    font-weight: bold;
+    margin-left: 6px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+#chk-marcado-auto {
+    margin-left: 10px;
+    margin-right: 5px;
+    accent-color: #24ff2b;
+}
+
+/* Flex main area */
+.main-flex {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+}
+
+.left-display {
+    min-width: 290px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bola-actual-container {
+    margin-top: 30px;
+    margin-bottom: 18px;
+    width: 180px;
+    text-align: center;
+}
+.bola-actual {
+    background: url('bingo_ball.png') no-repeat center center;
+    background-size: contain;
+    width: 165px;
+    height: 165px;
+    margin: 0 auto;
+    font-size: 82px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #111;
+    text-shadow: 3px 2px 0 #ffeb3b80, 1px 1px #f7e600b0;
+    box-shadow: 0 5px 20px #6a1b9a44;
+    animation: popOut 0.5s;
+    border-radius: 50%;
+}
+
+.label-bola-actual {
+    display: block;
+    color: #6a1b9a;
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 1.15em;
+    text-shadow: 1px 2px #fffa, 1px 1px #f7e600b0;
+    font-family: 'Montserrat', cursive;
+}
+
+.ultimas-bolas {
+    margin-top: 18px;
+    width: 100%;
+    text-align: center;
+}
+.ultimas-bolas h3 {
+    color: #711d94 !important;
+    font-family: 'Luckiest Guy', cursive;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 0 #6a1b9a3a;
+    margin-bottom: 8px;
+    font-size: 1.23em;
+}
+#ultimas-bolas-list {
+    display: grid;
+    grid-template-columns: repeat(4, 36px);
+    grid-auto-rows: 36px;
+    gap: 7px;
+    justify-content: center;
+    background: #faf9fbb0;
+    border-radius: 14px;
+    padding: 18px 11px;
+    min-height: 346px;
+    max-height: 410px;
+    overflow-y: auto;
+}
+.ultima-bola {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, #ffd700 40%, #fff 100%);
+    box-shadow: 0 2px 7px #a77f136b;
+    color: #222;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.16em;
+    font-weight: bold;
+    border: 2px solid #fffbe6;
+    transition: background 0.3s, color 0.3s;
+    text-shadow: 1px 2px 12px #fff8, 1px 1px #cead1e75;
+}
+
+/* Numbers Panel */
+.numbers-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+.numbers-grid {
+    display: grid;
+    grid-template-columns: repeat(8, 46px);
+    grid-template-rows: repeat(10, 46px);
+    gap: 7px;
+    background: #efecffeb;
+    border-radius: 17px;
+    padding: 25px 13px 15px 13px;
+    margin-bottom: 13px;
+    box-shadow: 0 0 9px #6a1b9a22;
+    justify-content: center;
+}
+
+.number-circle {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: linear-gradient(145deg,#7722b9 80%,#9175e7 100%);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.19em;
+    font-family: 'Montserrat',cursive;
+    font-weight: bold;
+    text-shadow: 1px 2px 12px #6a1b9a90, 2px 1px #fff4;
+    border: 2.5px solid #fff8;
+    cursor: pointer;
+    transition: background 0.3s, color 0.2s, border 0.2s, transform 0.18s;
+    margin: 0;
+}
+.number-circle.llamada {
+    background: linear-gradient(135deg, #b1b1b1 70%, #fffce8 100%);
+    color: #f6be08;
+    border: 2.5px solid #ffd700;
+    box-shadow: 0 1.5px 12px #ffd7002c;
+    transform: scale(0.97);
+    text-shadow: 0 2px 7px #ffd70079;
+}
+.number-circle.reciente {
+    animation: popOut 0.36s;
+    border: 2.5px solid #2bffa465 !important;
+}
+
+.number-circle:active {
+    transform: scale(1.09);
+}
+
+/* Cartillas */
+#cartillas-section {
+    margin-top: 32px;
+    padding: 12px 0 0 0;
+}
+#cartillas-section h2 {
+    color: #27f8e3;
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 1.32em;
+    text-align: center;
+    margin-bottom: 12px;
+    text-shadow: 1px 2px #fff, 0 0 8px #0072a4af;
+}
+
+#cartilla-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 9px;
+}
+
+.bingo-cartilla {
+    box-shadow: 0 0 15px #3ec7b070;
+    background: linear-gradient(130deg,#e7e3ff 30%,#acb3fa 100%);
+    border-radius: 11px;
+    padding: 14px 16px 14px 16px;
+    min-width: 265px;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+/* Cartilla label a la derecha */
+.cartilla-label-num {
+    display: block;
+    background: #6a1b9a;
+    color: #fff;
+    font-size: 1.07em;
+    border-radius: 11px;
+    padding: 5px 20px;
+    box-shadow: 0 2px 8px #13131322;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    letter-spacing: 2px;
+    position: static;
+    margin-left: 18px;
+    margin-top: 0;
+    align-self: flex-start;
+    min-width: 70px;
+    text-align: center;
+    height: fit-content;
+    margin-bottom: 0;
+    white-space: nowrap;
+}
+
+.cartilla-grid {
+    display: grid;
+    grid-template-columns: repeat(5,42px);
+    grid-template-rows: repeat(5,42px);
+    gap: 7px;
+}
+
+.cartilla-celda {
+    width: 42px;
+    height: 42px;
+    background: linear-gradient(135deg, #8348e5 90%, #d3cffc 100%);
+    color: #fff;
+    font-size: 1.17em;
+    font-weight: bold;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.21s, color 0.13s, transform .13s;
+    box-shadow: 0 1px 2px #0001;
+    border: 1px solid #fff5;
+}
+.cartilla-celda.vacia {
+    background: transparent !important;
+    border: none;
+    cursor: default;
+}
+.cartilla-celda.marcada {
+    background: linear-gradient(130deg,#fff066 0%,#f90077 100%);
+    color: #fff;
+    transform: scale(1.13);
+    box-shadow: 0 2px 16px #f900771c;
+    border: 2px solid #f900a1;
+}
+
+.cartilla-celda.automarcada {
+    background: linear-gradient(130deg,#11f94e 0%,#03dfff 100%);
+    color: #34163e;
+    transform: scale(1.13);
+    box-shadow: 0 2px 20px #26fff91c;
+    border: 2.4px solid #17e05b;
+}
+
+#number-display {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#current-number {
+    background: url('bingo_ball.png') no-repeat center center;
+    background-size: contain;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 72px;
+    font-weight: bold;
+    color: #000;
+    text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+}
+
+#called-numbers {
+    background: #6a1b9a;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.number-grid {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 5px;
+    background: rgba(106, 27, 154, 0.9);
+    padding: 15px;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+.number-ball {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #ffd700, #ffeb3b);
+    border: 2px solid #fff;
+    border-radius: 50%;
+    font-size: 16px;
+    font-weight: bold;
+    color: #000;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+
+.number-ball.called {
+    background: linear-gradient(135deg, #4a148c, #6a1b9a);
+    color: white;
+    transform: scale(0.95);
+}
+
+.recent-numbers {
+    background: rgba(106, 27, 154, 0.9);
+    padding: 15px;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+.recent-numbers h3 {
+    color: #ffd700;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.recent-numbers-grid {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#control-panel {
+    background: rgba(106, 27, 154, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+.bingo-number {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.bingo-number.marked {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.card-selector {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    z-index: 1000;
+}
+
+.card-number {
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #3498db;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 15px;
+    font-size: 14px;
+}
+
+.bingo-number.blank {
+    background: #f0f0f0;
+    border: none;
+}
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: #fff;
+    border-radius: 15px;
+    padding: 46px 34px;
+    min-width: 330px;
+    max-width: 95vw;
+    box-shadow: 0 0 90px #4416c880;
+    text-align: center;
+    font-family: 'Montserrat', cursive;
+}
+
+.modal .btn-modal {
+    margin-top: 14px;
+    padding: 11px 25px;
+    font-size: 1.22em;
+    border-radius: 20px;
+    border: none;
+    background: linear-gradient(135deg, #7e35ff, #27f8e3);
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    letter-spacing: 2px;
+    transition: background .21s;
+}
+
+.modal .btn-modal:hover {
+    background: linear-gradient(135deg, #5af07a, #13a7d6);
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* --------------------------------------
+   CARTILLA HORIZONTAL SELECTOR PANEL
+   --------------------------------------*/
+
+.cartilla-selector-layout {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+#cartilla-selector-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    max-height: 420px;
+    overflow-y: auto;
+    min-width: 105px;
+    margin-top: 24px;
+    margin-right: 12px;
+    padding-right: 7px;
+}
+
+.cartilla-btn {
+    background: linear-gradient(135deg,#7722b9 60%,#9175e7 100%);
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.07em;
+    border: none;
+    border-radius: 12px;
+    margin-bottom: 4px;
+    width: 95px;
+    padding: 8px 6px;
+    cursor: pointer;
+    outline: none;
+    box-shadow: 0 2px 6px #a386d128;
+    text-align: center;
+    transition: background .18s, color .16s, box-shadow .13s, transform .14s;
+    letter-spacing: 0.5px;
+}
+.cartilla-btn.selected, .cartilla-btn:focus {
+    background: linear-gradient(135deg,#ffd700 50%,#fffbe6 100%);
+    color: #6a1b9a;
+    font-weight: bolder;
+    border: 2px solid #ffd700;
+    box-shadow: 0 1px 13px #ffd70053;
+    transform: scale(1.08);
+}
+
+.cartilla-btn:hover {
+    background: linear-gradient(135deg, #27f8e3 60%, #5af07a 100%);
+    color: #222;
+}
+
+.cartilla-flex-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 290px;
+}
+
+@keyframes popOut {
+    0%   { transform: scale(1);}
+    60%  { transform: scale(1.2);}
+    100% { transform: scale(1);}
+}
+
+#remaining-balls {
+    font-size: 24px;
+    color: #ffd700;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+#game-status {
+    background: #6a1b9a;
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
